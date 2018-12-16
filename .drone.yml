@@ -1,0 +1,9 @@
+pipeline:
+  test:
+    image: androidbuildsdk27:latest
+    commands:
+      - ./gradlew build assemble -PdisablePreDex
+  build:
+    image: androidbuildsdk27:latest
+    commands:
+      - ./gradlew test assemble -PdisablePreDex
